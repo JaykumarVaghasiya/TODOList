@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<setSelection>
+    PageIndicatorView pageIndicatorView = findViewById(R.id.pageIndicatorView);
+    pageIndicatorView.setCount(5); // specify total count of indicators
+    pageIndicatorView.setSelection(2);
+
+</setSelection>

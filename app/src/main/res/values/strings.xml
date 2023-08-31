@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">TDList</string>
+    <string-array name="priority_options">
+        <item>High</item>
+        <item>Medium</item>
+        <item>Low</item>
+
+    </string-array>
+    <string name="first_time">first_time</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_task">Add Task</string>
+    <string name="enter_to_do">Enter To-Do</string>
+    <string name="description">Description</string>
+    <string name="get_s_started">Get\'s Started</string>
+    <string name="task">Task:</string>
+    <string name="the_to_do_list_app">The To Do List App</string>
+    <string name="tdlist">TDList</string>
+    <string name="user_friendly">User-Friendly</string>
+    <string name="streamline_your_tasks_effortlessly_with_our_user_friendly_to_do_list_app">Streamline your tasks effortlessly \n with our user-friendly to-do list app.</string>
+    <string name="effortlessly_manage_tasks_n_with_our_user_friendly_to_do_list_app">Effortlessly manage tasks \n with our user-friendly to-do list app.</string>
+    <string name="easy_to_manage">Easy To Manage</string>
+    <string name="user_friendly_to_do_list_app_n_for_effortless_task_management">User-friendly to-do list app \n for effortless task management.</string>
+    <string name="tasks">Tasks</string>
+    <string name="to_do">To-Do</string>
+    <string name="easy">Easy</string>
+    <string name="enter_a_task">Enter a Task</string>
+    <string name="error_message_will_appear_here">Error message will appear here</string>
+    <string name="please_enter_a_task">Please Enter A Task</string>
+</resources>
