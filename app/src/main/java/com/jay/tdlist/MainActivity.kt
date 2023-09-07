@@ -9,9 +9,11 @@ import android.view.LayoutInflater
 import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.NestedScrollView
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.textfield.TextInputLayout
 import com.jay.tdlist.database.Task
@@ -39,17 +41,36 @@ class MainActivity : AppCompatActivity(), TaskAdapter.OnTaskClickListener {
         taskRecyclerView.layoutManager = LinearLayoutManager(this)
         taskTextView?.text = R.string.task.toString()
 
-        taskAdapter=TaskAdapter(this,taskViewModel,this)
-        taskRecyclerView.adapter=taskAdapter
+        taskAdapter = TaskAdapter(this, taskViewModel, this)
+        taskRecyclerView.adapter = taskAdapter
 
         lifecycleScope.launch {
-            taskViewModel.allTasks.collect { task->
+            taskViewModel.allTasks.collect { task ->
                 taskAdapter.updateData(task)
 
             }
         }
 
-        val addTaskButton: FloatingActionButton = findViewById(R.id.addTaskButton)
+        val addTaskButton: ExtendedFloatingActionButton = findViewById(R.id.addTaskButton)
+        val nestedScrollView = findViewById<NestedScrollView>(R.id.nestedScrollView)
+
+        nestedScrollView.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { _, _, scrollY, _, oldScrollY ->
+
+            if (scrollY > oldScrollY + 12 && addTaskButton.isExtended) {
+                addTaskButton.shrink()
+            }
+
+            // the delay of the extension of the FAB is set for 12 items
+            if (scrollY < oldScrollY - 12 && !addTaskButton.isExtended) {
+                addTaskButton.extend()
+            }
+
+            // if the nestedScrollView is at the first item of the list then the
+            // extended floating action should be in extended state
+            if (scrollY == 0) {
+                addTaskButton.extend()
+            }
+        })
         addTaskButton.setOnClickListener {
             showAddTaskDialog()
         }
@@ -65,7 +86,7 @@ class MainActivity : AppCompatActivity(), TaskAdapter.OnTaskClickListener {
         val dialogBuilder = AlertDialog.Builder(this)
             .setView(dialogView)
             .setTitle("Add Task")
-            .setPositiveButton("Add",null)
+            .setPositiveButton("Add", null)
             .setNegativeButton("Back") { dialog, _ ->
                 dialog.dismiss()
             }
@@ -92,9 +113,9 @@ class MainActivity : AppCompatActivity(), TaskAdapter.OnTaskClickListener {
 
     override fun onTaskClick(task: Task) {
 
-            val intent = Intent(this@MainActivity, ShowToDOs::class.java)
-            intent.putExtra("task",task.taskId)
-            startActivity(intent)
+        val intent = Intent(this@MainActivity, ShowToDOs::class.java)
+        intent.putExtra("task", task.taskId)
+        startActivity(intent)
 
     }
 

@@ -7,6 +7,15 @@
     android:background="#283750"
     tools:context=".MainActivity">
 
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/taskRecyclerView"
         android:layout_width="match_parent"
@@ -15,20 +24,23 @@
         tools:listitem="@layout/item_task">
 
     </androidx.recyclerview.widget.RecyclerView>
+    </androidx.core.widget.NestedScrollView>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/addTaskButton"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:background="#B4CBE1"
-        android:foreground="@drawable/baseline_add_24"
+        app:icon="@drawable/baseline_add_24"
+        app:iconTint="#283750"
         android:backgroundTint="#B4CBE1"
+        android:text="@string/add_task"
+        android:textColor="@color/black"
         android:layout_marginBottom="16dp"
         android:clickable="true"
-        android:contentDescription="TASK" />
+        />
 </RelativeLayout>
