@@ -1,4 +1,4 @@
-package com.jay.tdlist
+package com.jay.tdlist.task
 
 import android.app.AlertDialog
 import android.content.Context
@@ -8,16 +8,19 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.button.MaterialButton
+import com.google.android.material.textview.MaterialTextView
+import com.jay.tdlist.R
 import com.jay.tdlist.database.Task
 import com.jay.tdlist.database.TaskViewModel
 
 
-class TaskAdapter(private val listener:OnTaskClickListener,private val taskViewModel: TaskViewModel, val context: Context):RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
+class TaskAdapter(private val listener: OnTaskClickListener, private val taskViewModel: TaskViewModel, val context: Context):RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
         private var tasks= mutableListOf<Task>()
 
     inner class TaskViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val textViewI: TextView = itemView.findViewById(R.id.textViewI)!!
-        private val delete:Button=itemView.findViewById(R.id.taskDelete)
+        private val textViewI: MaterialTextView = itemView.findViewById(R.id.textViewI)!!
+        private val delete:MaterialButton=itemView.findViewById(R.id.taskDelete)
         fun bind(task: Task) {
             textViewI.text = task.name
 
@@ -44,7 +47,7 @@ class TaskAdapter(private val listener:OnTaskClickListener,private val taskViewM
         return TaskViewHolder(itemView)
     }
 
-    override fun onBindViewHolder(holder: TaskAdapter.TaskViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
         holder.bind(tasks[position])
 
         holder.itemView.setOnClickListener {

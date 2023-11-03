@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#B4CBE1"
+    android:background="@color/peach_300"
     android:orientation="vertical"
     tools:context=".onBoarding.GettingStarted">
 
@@ -20,9 +20,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:dampingRatio="0.5"
-        app:dotsColor="#283750"
+        app:dotsColor="@color/peach_300"
         android:layout_margin="20dp"
-        app:dotsStrokeColor="#283750"
+        app:dotsStrokeColor="@color/peach_100"
         app:dotsCornerRadius="2dp"
         app:dotsSize="20dp"
         app:dotsSpacing="6dp"

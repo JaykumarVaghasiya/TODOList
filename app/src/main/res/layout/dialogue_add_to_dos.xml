@@ -35,7 +35,7 @@
         android:id="@+id/etmSubtitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/AppTheme.WhiteEditText"
+
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
@@ -50,7 +50,7 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_margin="10dp"
-        style="@style/SpinnerStyle"
+        android:spinnerMode="dropdown"
         />
 
 

@@ -1,4 +1,4 @@
-package com.jay.tdlist
+package com.jay.tdlist.todo
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,11 +8,13 @@ import android.widget.Spinner
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.NestedScrollView
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import com.google.android.material.textfield.TextInputLayout
+import com.jay.tdlist.R
 import com.jay.tdlist.database.ToDo
 import com.jay.tdlist.database.ToDoViewModel
 import kotlinx.coroutines.launch
@@ -30,7 +32,7 @@ class ShowToDOs : AppCompatActivity() {
         supportActionBar?.title = "TO-DOs"
 
         todoRecyclerView = findViewById(R.id.recyclerViewToDo)
-        val addToDoButton: FloatingActionButton = findViewById(R.id.fabAddToDo)
+        val addToDoButton: ExtendedFloatingActionButton = findViewById(R.id.fabAddToDo)
 
         todoRecyclerView.layoutManager = LinearLayoutManager(this)
 
@@ -45,6 +47,21 @@ class ShowToDOs : AppCompatActivity() {
                 todoAdapter.updateToDo(toDos)
             }
         }
+        val nestedScrollView = findViewById<NestedScrollView>(R.id.nestedScrollView)
+
+        nestedScrollView.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { _, _, scrollY, _, oldScrollY ->
+
+            if (scrollY > oldScrollY + 12 && addToDoButton.isExtended) {
+                addToDoButton.shrink()
+            }
+
+            if (scrollY < oldScrollY - 12 && !addToDoButton.isExtended) {
+                addToDoButton.extend()
+            }
+            if (scrollY == 0) {
+                addToDoButton.extend()
+            }
+        })
         addToDoButton.setOnClickListener {
             showAddToDoDialog()
         }

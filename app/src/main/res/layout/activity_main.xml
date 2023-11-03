@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#283750"
-    tools:context=".MainActivity">
+
+    tools:context=".task.MainActivity">
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScrollView"
@@ -35,9 +35,6 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        app:icon="@drawable/baseline_add_24"
-        app:iconTint="#283750"
-        android:backgroundTint="#B4CBE1"
         android:text="@string/add_task"
         android:textColor="@color/black"
         android:layout_marginBottom="16dp"

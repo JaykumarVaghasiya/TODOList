@@ -1,4 +1,4 @@
-package com.jay.tdlist
+package com.jay.tdlist.splashscreen
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -10,6 +10,7 @@ import android.view.WindowInsets
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
+import com.jay.tdlist.R
 import com.jay.tdlist.onBoarding.GettingStarted
 
 

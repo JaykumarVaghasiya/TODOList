@@ -1,4 +1,4 @@
-package com.jay.tdlist
+package com.jay.tdlist.todo
 
 
 import android.app.AlertDialog
@@ -9,6 +9,9 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.button.MaterialButton
+import com.google.android.material.textview.MaterialTextView
+import com.jay.tdlist.R
 import com.jay.tdlist.database.ToDo
 import com.jay.tdlist.database.ToDoViewModel
 
@@ -17,10 +20,10 @@ class ToDoAdapter(private val toDoViewModel: ToDoViewModel,val context: Context)
 RecyclerView.Adapter<ToDoAdapter.ToDoViewHolder>(){
     private var todos= mutableListOf<ToDo>()
     inner class ToDoViewHolder (itemView: View):RecyclerView.ViewHolder(itemView){
-        private val todoNameTextView:TextView=itemView.findViewById(R.id.tvToDoName)
-        private val todoSubtitleTextView:TextView=itemView.findViewById(R.id.tvSubtitle)
-        private val todoPriorityTextView:TextView=itemView.findViewById(R.id.tvPriority)
-        private val delete:Button=itemView.findViewById(R.id.btDelete)
+        private val todoNameTextView:MaterialTextView=itemView.findViewById(R.id.tvToDoName)
+        private val todoPriorityTextView:MaterialTextView=itemView.findViewById(R.id.tvPriority)
+        private val todoSubtitleTextView:MaterialTextView=itemView.findViewById(R.id.tvSubtitle)
+        private val delete:MaterialButton=itemView.findViewById(R.id.btDelete)
 
 
         fun bind(todo:ToDo){
@@ -61,7 +64,7 @@ RecyclerView.Adapter<ToDoAdapter.ToDoViewHolder>(){
 
     }
 
-    override fun onBindViewHolder(holder: ToDoAdapter.ToDoViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ToDoViewHolder, position: Int) {
         val todo=todos[position]
         holder.bind(todo)
 

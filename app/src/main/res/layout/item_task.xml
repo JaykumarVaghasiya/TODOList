@@ -4,27 +4,36 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
-    android:background="@drawable/rounded_corner_light">
+    android:layout_margin="8dp">
 
-    <TextView
-        android:id="@+id/textViewI"
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="34sp"
-        android:textColor="#283750"
-        android:padding="5dp"
-        android:layout_weight="7"
-        android:textColorHighlight="@color/white"
-        />
+        app:cardCornerRadius="12dp"
+        app:cardElevation="8dp">
 
-        <Button
-            android:id="@+id/taskDelete"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@drawable/baseline_delete_24"
-            android:layout_weight="1"
-            android:layout_gravity="center"
-            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp">
 
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/textViewI"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="7"
+                android:padding="4dp"
+                android:textColor="#283750"
+                android:textSize="24sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/taskDelete"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/baseline_delete_24" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 </LinearLayout>

@@ -1,9 +1,18 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.TDList" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <style name="Base.Theme.TDList" parent="Theme.Material3.DayNight">
+        <item name="colorSurface">@color/peach_100</item>
+        <item name="colorPrimary">@color/peach_300</item>
+        <item name="materialCardViewStyle">@style/cardView</item>
+        <item name="colorOnSurface">@color/white</item>
+        <item name="colorOnSurfaceVariant">@color/white</item>
+        <item name="actionMenuTextColor">@color/white</item>
+        <item name="materialAlertDialogTheme">@style/dialog</item>
     </style>
 
-    <style name="Theme.TDList" parent="Base.Theme.TDList" />
+    <style name="cardView" parent="Base.Theme.TDList">
+        <item name="colorOnSurface">@color/peach_300</item>
+    </style>
+
+    <style name="dialog" parent="Base.Theme.TDList" />
 </resources>

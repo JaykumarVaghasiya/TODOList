@@ -1,4 +1,4 @@
-package com.jay.tdlist
+package com.jay.tdlist.task
 
 
 import android.annotation.SuppressLint
@@ -13,11 +13,15 @@ import androidx.core.widget.NestedScrollView
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.textfield.TextInputLayout
+import com.google.android.material.textview.MaterialTextView
+import com.google.android.material.transition.MaterialFade
+import com.jay.tdlist.R
 import com.jay.tdlist.database.Task
 import com.jay.tdlist.database.TaskViewModel
+import com.jay.tdlist.todo.ShowToDOs
 import kotlinx.coroutines.launch
 
 
@@ -28,7 +32,6 @@ class MainActivity : AppCompatActivity(), TaskAdapter.OnTaskClickListener {
     private var tasks = mutableListOf<Task>()
     private val taskViewModel: TaskViewModel by viewModels()
 
-
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +39,7 @@ class MainActivity : AppCompatActivity(), TaskAdapter.OnTaskClickListener {
         supportActionBar?.title = "Task"
 
 
-        val taskTextView: TextView? = findViewById(R.id.textViewI)
+        val taskTextView: MaterialTextView? = findViewById(R.id.textViewI)
         taskRecyclerView = findViewById(R.id.taskRecyclerView)
         taskRecyclerView.layoutManager = LinearLayoutManager(this)
         taskTextView?.text = R.string.task.toString()
@@ -79,17 +82,23 @@ class MainActivity : AppCompatActivity(), TaskAdapter.OnTaskClickListener {
     @SuppressLint("SuspiciousIndentation")
     private fun showAddTaskDialog() {
 
+
+
         val dialogView = LayoutInflater.from(this).inflate(R.layout.dialogue_add_task, null)
         val textInputLayout = dialogView.findViewById<TextInputLayout>(R.id.textInputLayout)
         val editTextTaskName = textInputLayout.editText
 
-        val dialogBuilder = AlertDialog.Builder(this)
+        val dialogBuilder = MaterialAlertDialogBuilder(this)
             .setView(dialogView)
             .setTitle("Add Task")
             .setPositiveButton("Add", null)
             .setNegativeButton("Back") { dialog, _ ->
                 dialog.dismiss()
             }
+
+
+        // Set the enter and exit transitions for the dialog
+
         val dialog = dialogBuilder.create()
         // Set custom click listener for positive button after creating the dialog
         dialog.setOnShowListener {

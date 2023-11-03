@@ -27,4 +27,5 @@
     <string name="enter_a_task">Enter a Task</string>
     <string name="error_message_will_appear_here">Error message will appear here</string>
     <string name="please_enter_a_task">Please Enter A Task</string>
+    <string name="add_todo">Add To-Do</string>
 </resources>

@@ -5,7 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
-import com.jay.tdlist.MainActivity
+import com.jay.tdlist.task.MainActivity
 import com.jay.tdlist.R
 import com.tbuonomo.viewpagerdotsindicator.SpringDotsIndicator
 
@@ -17,7 +17,7 @@ class GettingStarted : AppCompatActivity() {
         val onboardingCompleted=sharedPreferences.getBoolean("onboarding_completed",false)
 
         if(onboardingCompleted){
-            val intent= Intent(this,MainActivity::class.java)
+            val intent= Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
         }else{

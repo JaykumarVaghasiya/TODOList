@@ -7,7 +7,7 @@
 
     <activity
         android:id="@+id/splashScreen"
-        android:name="com.jay.tdlist.SplashScreen"
+        android:name="com.jay.tdlist.splashscreen.SplashScreen"
         android:label="activity_splash_screen"
         tools:layout="@layout/activity_splash_screen" />
     <fragment

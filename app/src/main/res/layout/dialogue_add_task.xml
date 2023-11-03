@@ -19,7 +19,6 @@
             android:id="@+id/etTaskName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/AppTheme.WhiteEditText"
             android:layout_margin="10dp"
             android:inputType="text"
             android:textSize="36sp"
